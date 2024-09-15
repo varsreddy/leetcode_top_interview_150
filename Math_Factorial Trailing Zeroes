@@ -1,0 +1,31 @@
+// class Solution {
+//     public int trailingZeroes(int n) {
+//         int zeroes = 0;
+//         int fac = 1;
+//         int dup = n;
+
+//         while(dup>1){
+//             fac *= dup;
+//             int five = 5;
+//             while(dup>=five && dup%five==0){
+//                 zeroes++;
+//                 five *= 5;
+//             }
+//             dup--;
+//         }
+//         return zeroes;
+//     }
+// }
+
+
+class Solution {
+    public int trailingZeroes(int n) {
+        int zeroes = 0;
+        // Count factors of 5
+        while (n >= 5) {
+            n /= 5;
+            zeroes += n;
+        }
+        return zeroes;
+    }
+}
